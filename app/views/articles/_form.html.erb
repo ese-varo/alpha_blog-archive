@@ -8,19 +8,22 @@
 <% end %>
 
 <form>
-    <%= form_for @article do |f| %>
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "form-control",
-                         placeholder: "Title of article", autofocus: true %>
-      </div>
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, rows: 10, class: "form-control" %>
-      </div>
-      <p>
-        <%= f.submit %>
-      </p>
-    <% end %>
-    <%= link_to "Back to articles listing", articles_path %>
+  <%= form_for @article do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control",
+                       placeholder: "Title of article", autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 10, class: "form-control" %>
+    </div>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+  <div align="center">
+    [ <%= link_to "Cancel request and return to articles listing",
+                  articles_path %> ]
+  </div>
 </form>
