@@ -1,22 +1,35 @@
 <% if @article.errors.any? %>
-<h2>The following errors preventing the article from getting created</h2>
-<ul>
-  <% @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
+  <div class="row">
+    <div class="col">
+      <div class="card border-danger text-danger messages">
+        <div class="card-heading">
+          <h2 class="card-title">
+            <%= pluralize(@article.errors.count, "error") %>
+            prohibited this article from being saved:
+          </h2>
+          <div class="">
+            <ul>
+              <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= form_for @article do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :description %><br/>
-    <%= f.text_field :description %>
-  </p>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
 
   <p>
     <%= f.submit %>
