@@ -1,43 +1,27 @@
-<% if @article.errors.any? %>
-  <div class="row">
-    <div class="col">
-      <div class="card border-danger text-danger messages">
-        <div class="card-heading">
-          <h2 class="card-title">
-            <%= pluralize(@article.errors.count, "error") %>
-            prohibited this article from being saved:
-          </h2>
-          <div class="">
-            <ul>
-              <% @article.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+<%= render 'shared/errors', obj: @article  %>
+
+<div class='row'>
+  <div class='col col-10 offset-1'>
+    <%= form_for @article do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control",
+                           placeholder: "Title of article", autofocus: true %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :description %><br/>
+        <%= f.text_area :description, rows: 10, class: "form-control" %>
+      </div>
+
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+
+    <div align="center">
+      [ <%= link_to "Cancel request and return to articles listing",
+                    articles_path %> ]
     </div>
   </div>
-<% end %>
-
-<%= form_for @article do |f| %>
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control",
-                       placeholder: "Title of article", autofocus: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :description %><br/>
-    <%= f.text_area :description, rows: 10, class: "form-control" %>
-  </div>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<div align="center">
-	[ <%= link_to "Cancel request and return to articles listing",
-								articles_path %> ]
 </div>
