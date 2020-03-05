@@ -30,6 +30,6 @@ group :test do
   gem 'webdrivers'
 end
 
-group :test, :production do
+group :production do
   gem 'pg'
 end
