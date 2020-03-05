@@ -4,19 +4,32 @@
   <div class='col col-10 offset-1'>
     <%= form_for @article do |f| %>
       <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "form-control",
-                           placeholder: "Title of article", autofocus: true %>
       </div>
 
       <div class="form-group">
-        <%= f.label :description %><br/>
-        <%= f.text_area :description, rows: 10, class: "form-control" %>
+        <div class="control-label col-sm-2">
+          <%= f.label :title %>
+        </div>
+        <div class="col">
+          <%= f.text_field :title, class: "form-control",
+                           placeholder: "Title of article", autofocus: true %>
+        </div>
       </div>
 
-      <p>
-        <%= f.submit %>
-      </p>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :description %><br/>
+        </div>
+        <div class="col">
+          <%= f.text_area :description, rows: 10, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
 
     <div align="center">
