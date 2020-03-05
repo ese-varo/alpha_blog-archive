@@ -110,6 +110,15 @@
   padding: 10px 10px;
 }
 
+.listing {
+  list-style: none;
+  padding-left: 0;
+}
+
+.listing .card {
+  padding: 15px;
+}
+
 footer {
   margin-top: 45px;
   padding-top: 5px;
