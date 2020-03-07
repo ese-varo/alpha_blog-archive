@@ -7,7 +7,7 @@
             <%= pluralize(obj.errors.count, "error") %>
             prohibited this article from being saved:
           </h2>
-          <div class="">
+          <div class="card-body">
             <ul>
               <% obj.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
